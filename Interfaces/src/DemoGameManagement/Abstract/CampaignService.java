@@ -1,5 +1,6 @@
 package DemoGameManagement.Abstract;
 
+
 import DemoGameManagement.Entity.Campaign;
 
 public interface CampaignService {

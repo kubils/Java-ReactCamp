@@ -1,8 +1,8 @@
 package DemoGameManagement.Concrete;
 
 import DemoGameManagement.Abstract.BaseUserManager;
-import DemoGameManagement.Entity.User;
 import DemoGameManagement.Abstract.CustomerCheckService;
+import DemoGameManagement.Entity.User;
 
 public class UserManager extends BaseUserManager {
 

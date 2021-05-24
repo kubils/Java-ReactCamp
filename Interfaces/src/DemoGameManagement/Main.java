@@ -1,15 +1,12 @@
-package DemoGameManagement;
-
 
 
 import DemoGameManagement.Abstract.BaseUserManager;
-import DemoGameManagement.Abstract.GameService;
-import DemoGameManagement.Adapters.MernisServiceAdapter;
 import DemoGameManagement.Concrete.*;
 import DemoGameManagement.Entity.Campaign;
 import DemoGameManagement.Entity.Game;
 import DemoGameManagement.Entity.Sale;
 import DemoGameManagement.Entity.User;
+
 
 import java.time.LocalDate;
 

@@ -1,5 +1,6 @@
 package DemoGameManagement.Abstract;
 
+
 import DemoGameManagement.Entity.Campaign;
 import DemoGameManagement.Entity.Game;
 import DemoGameManagement.Entity.User;
