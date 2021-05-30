@@ -4,6 +4,7 @@ package kodlamaio.northwind.business.abstracts;
 import kodlamaio.northwind.core.utilities.results.DataResult;
 import kodlamaio.northwind.core.utilities.results.Result;
 import kodlamaio.northwind.entities.concretes.Product;
+import kodlamaio.northwind.entities.dtos.ProductWithCategoryDto;
 
 import java.util.List;
 
@@ -34,5 +35,7 @@ public interface ProductService {
 
     //sorted data
     DataResult<List<Product>> getAllSorted();
+
+    DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails();
 
 }

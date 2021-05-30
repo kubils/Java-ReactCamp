@@ -21,7 +21,7 @@ public class Category {
     private String categoryName;
 
     //category have products
-    // 1st parameter mappedby |
+    // 1st parameter mappedby | connect to other table
     @OneToMany(mappedBy = "category")
     private List<Product> products;
 }

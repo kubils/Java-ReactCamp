@@ -7,6 +7,7 @@ import kodlamaio.northwind.core.utilities.results.SuccessDataResult;
 import kodlamaio.northwind.core.utilities.results.SuccessResult;
 import kodlamaio.northwind.dataAccess.abstracts.ProductDao;
 import kodlamaio.northwind.entities.concretes.Product;
+import kodlamaio.northwind.entities.dtos.ProductWithCategoryDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -97,7 +98,7 @@ public class ProductManager implements ProductService {
     public DataResult<List<Product>> getAll(int pageNo, int pageSize) {
 
         //pageNo starts from 0 so -1
-        Pageable pageable = PageRequest.of(pageNo -1, pageSize);
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
 
         return new SuccessDataResult<List<Product>>
                 (this.productDao.findAll(pageable).getContent(), "Data listed");
@@ -109,5 +110,11 @@ public class ProductManager implements ProductService {
         Sort sort = Sort.by(Sort.Direction.DESC, "productName");
         return new SuccessDataResult<List<Product>>
                 (this.productDao.findAll(sort), "Data listed");
+    }
+
+    @Override
+    public DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails() {
+        return new SuccessDataResult<List<ProductWithCategoryDto>>(this.productDao.getProductWithCategoryDetails(), "Data listed");
+
     }
 }
