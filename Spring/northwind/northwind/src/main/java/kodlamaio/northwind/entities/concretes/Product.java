@@ -30,7 +30,6 @@ public  class Product {
     private String quantityPerUnit;
 
     //add customer
-    //we do not need categoryId anymore
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
