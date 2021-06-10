@@ -9,7 +9,7 @@ export default function Categories() {
                     <Input placeholder='Search...' />
                 </Menu.Item>
 
-                <Menu.Item>
+                <Menu.Item >
                     Home
                 <Menu.Menu>
                         <Menu.Item

@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
-import { Icon, Label, Menu, Table } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
+import { Icon, Menu, Table } from 'semantic-ui-react'
 import ProductService from '../layouts/services/productService'
 
 export default function ProductList() {
@@ -20,7 +21,7 @@ export default function ProductList() {
         // setProducts send to products
         //axios data.(localhost)data
         productService.getProducts().then(result => setProducts(result.data.data))
-    })
+    }, [])  //[] stage change usage 
 
     return (
         <div>
@@ -41,7 +42,7 @@ export default function ProductList() {
                         //unique
                         //connection with data  : swagger data
                         <Table.Row key={p.id}>
-                            <Table.Cell>{p.productName}</Table.Cell>
+                            <Table.Cell><Link to = {`/products/${p.productName}`}>{p.productName}</Link></Table.Cell>
                             <Table.Cell>{p.unitPrice}</Table.Cell>
                             <Table.Cell>{p.unitsInStock}</Table.Cell>
                             <Table.Cell>{p.quantityPerUnit}</Table.Cell>
