@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Icon, Menu, Table, Button} from 'semantic-ui-react'
 import ProductService from '../services/productService'
 import { useDispatch } from 'react-redux'
-import {addToCart} from '../store/actions/cartActions'
+import {addToCart} from '../../store/actions/cartActions'
 import {toast} from 'react-toastify'
 
 export default function ProductList() {
