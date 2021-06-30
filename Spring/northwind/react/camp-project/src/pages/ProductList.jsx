@@ -1,10 +1,19 @@
 import React, {useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
-import { Icon, Menu, Table } from 'semantic-ui-react'
-import ProductService from '../layouts/services/productService'
+import { Icon, Menu, Table, Button} from 'semantic-ui-react'
+import ProductService from '../services/productService'
+import { useDispatch } from 'react-redux'
+import {addToCart} from '../store/actions/cartActions'
+import {toast} from 'react-toastify'
 
 export default function ProductList() {
 
+    //dispatch action, function name call
+    const dispatch = useDispatch()
+    const handleAddToCart = (product) => {
+        dispatch(addToCart(product));
+        toast.success(`${product.productName}`)
+    }
     //hooks
     //destructer  ;
     //useState returns objects and function 
@@ -23,6 +32,8 @@ export default function ProductList() {
         productService.getProducts().then(result => setProducts(result.data.data))
     }, [])  //[] stage change usage 
 
+
+
     return (
         <div>
             <Table celled>
@@ -33,6 +44,7 @@ export default function ProductList() {
                         <Table.HeaderCell>In Stock</Table.HeaderCell>
                         <Table.HeaderCell>Info</Table.HeaderCell>
                         <Table.HeaderCell>Category</Table.HeaderCell>
+                        <Table.HeaderCell></Table.HeaderCell>
                     </Table.Row>
                 </Table.Header>
 
@@ -47,12 +59,14 @@ export default function ProductList() {
                             <Table.Cell>{p.unitsInStock}</Table.Cell>
                             <Table.Cell>{p.quantityPerUnit}</Table.Cell>
                             <Table.Cell>{p.category.categoryName}</Table.Cell>
+                            {/* to avoid render all item to cart onclick(()=>functname(p) ) */}
+                            <Table.Cell><Button onClick={() => handleAddToCart(p)}>Add To Cart</Button></Table.Cell>
                         </Table.Row>
                        ))
                     }
 
                     
-                </Table.Body>
+                </Table.Body> 
 
                 <Table.Footer>
                     <Table.Row>

@@ -12,6 +12,7 @@ export default function Categories() {
                 <Menu.Item >
                     Home
                 <Menu.Menu>
+                    
                         <Menu.Item
                             name='search'
 
